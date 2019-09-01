@@ -10,15 +10,36 @@ An API to fetch and stream orders from xrides.
 - <b>POST</b> /orders
 - <b>GET</b> /orders
 - <b>GET</b> /orders/<b>\<id\></b>
+	
+Post Body Example:
+```code
+{
+  "id":1,
+  "user_id": "testuserid",
+  "vehicle_model_id": "qwerty",
+  "package_id": 2,
+  "travel_type_id": 1,
+  "from_area_id": "w8snSyu1",
+  "to_area_id": "98u9jasdg",
+  "from_city_id": "9kjnasdkuo13r",
+  "to_city_id": "7098jashubnd",
+  "from_date": 15876132,
+  "to_date": 158712311,
+  "online_booking": true,
+  "mobile_site_booking": true,
+  "booking_created": 15879123,
+  "from_lat": 15.887123,
+  "from_long": 77.897123,
+  "to_lat": 15.123123,
+  "to_long": 77.897123,
+  "car_cancellation": false
+}
+```
 
 ### Instructions
 ```
 npm run [dev/testing/prod]
 ```
-### Technology Stack
-1. Node.Js (Express)
-2. PostgreSQL
-
 ### Screenshots
 ![Test 1](https://i.ibb.co/SXg2mW4/Screenshot-from-2019-09-01-13-05-07.png)
 
