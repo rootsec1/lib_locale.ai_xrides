@@ -1,4 +1,5 @@
 const {  Pool } = require('pg');
+const expressRateLimit = require('express-rate-limit');
 
 module.exports.respond = (error, data, request, response) => {
     if(error) {
@@ -26,3 +27,9 @@ module.exports.setupDatabaseConnection = (config) => {
             process.exit();
         });
 }
+
+module.exports.rateLimiter = expressRateLimit({
+    max: 12500,
+    windowMs: 60*60*1000,
+    message: 'Too many requests'
+});
