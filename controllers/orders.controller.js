@@ -22,4 +22,11 @@ exports.getAllOrders = (request, response) => {
     }
 };
 
-exports.getOrder = (request, response) => pool.query('SELECT * FROM orders WHERE id=$1', [request.params.id], (error,data) => respond(error, data.rows[0], request, response));
+exports.getOrder = (request, response) => {
+    const preparedStatement = 'SELECT * FROM orders WHERE id=$1';
+    const values = [ request.params.id ];
+    pool.query(preparedStatement, values, (error,data) => {
+        if(data===null || data===undefined || data.length===0) respond(null, [], request, response);
+        respond(error, data.rows[0], request, response);
+    });
+};
