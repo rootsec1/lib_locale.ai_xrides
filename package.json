@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod": "node index.js prod",
+    "dev": "node index.js dev",
+    "testing": "node index.js test"
   },
   "author": "abhishekwl",
   "license": "ISC",
