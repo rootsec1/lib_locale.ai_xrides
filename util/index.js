@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const { Client, Pool } = require('pg');
 
 module.exports.respond = (error, data, request, response) => {
     if(error) {
@@ -7,15 +7,20 @@ module.exports.respond = (error, data, request, response) => {
     } else response.json({ 'success': true, 'data': data });
 };
 
-module.exports.setupSequelize = (config) => {
-    const sequelize = new Sequelize(config.DB_NAME, config.DB_USER, config.DB_USER_PASSWORD, {
+module.exports.setupDatabaseConnection = (config) => {
+    const pool = new Pool({
+        user: config.DB_USER,
+        password: config.DB_USER_PASSWORD,
         host: config.DB_HOST,
-        dialect: config.DB_DIALECT
+        database: config.DB_NAME 
     });
-    sequelize.authenticate()
-        .then(() => console.log('[DB] Connection to DB success'))
+    pool.connect()
+        .then(() => {
+            console.log('[DB] Connection to DB success');
+            global.pool = pool;
+        })
         .catch(err => {
-            console.log('[!DB] Connection DB failed');
+            console.log('[!DB] Connection to DB failed');
             console.log('[!DB] Error: '+err);
             console.log('[!DB] Exiting');
             process.exit();

@@ -5,11 +5,11 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 //LOCAL
 const config = require('./config');
-const { respond, setupSequelize } = require('./util');
+const { respond, setupDatabaseConnection } = require('./util');
 
-if(process.argv[2]==='dev') setupSequelize(config.development);
-else if(process.argv[2]==='testing') setupSequelize(config.testing);
-else if(process.argv[2]==='prod') setupSequelize(config.production);
+if(process.argv[2]==='dev') setupDatabaseConnection(config.development);
+else if(process.argv[2]==='testing') setupDatabaseConnection(config.testing);
+else if(process.argv[2]==='prod') setupDatabaseConnection(config.production);
 else {
     console.log('[!SERVER] Environment not supplied as command line argument');
     console.log('[!SERVER] Usage: node index.js [prod|dev|test]');
