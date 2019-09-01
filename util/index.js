@@ -18,13 +18,13 @@ module.exports.setupDatabaseConnection = (config) => {
     pool.connect()
         .then(() => {
             console.log('[DB] Connection to DB success');
-            global.pool = pool;
+            global.pool = pool; // Creating a global variable of the connection instance to prevent creating multiple connections
         })
         .catch(err => {
             console.log('[!DB] Connection to DB failed');
             console.log('[!DB] Error: '+err);
             console.log('[!DB] Exiting');
-            process.exit();
+            process.exit(); // Stopping server if Database connection fails
         });
 }
 

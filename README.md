@@ -1,5 +1,6 @@
 # lib_locale.ai_xrides
-An API to fetch and stream orders from xrides.
+An API to fetch and stream orders from XRides.
+<b>NOTE</b>: Database dump is also available at ./dbdump.tar.
 
 ### Links
 [Application URL](https://limitless-falls-57736.herokuapp.com)
@@ -44,6 +45,8 @@ npm run [dev/testing/prod]
 ![Test 1](https://i.ibb.co/SXg2mW4/Screenshot-from-2019-09-01-13-05-07.png)
 
 ![Test 2](https://i.ibb.co/BL312Z8/Screenshot-from-2019-09-01-13-05-15.png)
+
+![DB Schema](https://i.ibb.co/cXMvLBk/Screenshot-from-2019-09-01-20-21-03.png)
 
 ### Ideal System Design
 

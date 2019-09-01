@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = {  // Configuration for various environments
     development: {
         DB_USER: process.env.PGUSER,
         DB_USER_PASSWORD: process.env.PGPASSWORD,
@@ -17,5 +17,5 @@ module.exports = {
         DB_NAME: process.env.PGDATABASE,
         DB_HOST: process.env.PGHOST
     },
-    port: process.env.PORT || 8000
+    port: process.env.PORT || 8000  // Port to listen on
 };
