@@ -21,4 +21,5 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.get('/', (request, response) => respond(null, 'All requests should be directed to /api/v1 endpoint', request, response));
+require('./routes/order.routes')(app);
 app.listen(config.port, '0.0.0.0', () => console.log('[SERVER] Listening on port '+config.port));
